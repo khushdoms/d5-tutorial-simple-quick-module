@@ -158,7 +158,7 @@ const simpleQuickModule = {
         // on `response` properties of `useFetch` hook declaration above.
         fetch({
           method: 'GET',
-          restRoute: `/wp/v2/posts?context=view&per_page=${postsNumber}`,
+          restRoute: '/d5tut/v1/module-data/simple-quick-module/posts',
           data: {
             postsNumber: postsNumber,
           },
@@ -168,29 +168,6 @@ const simpleQuickModule = {
 
       // This will make sure that the callback is only executed when the `postsNumber` value is changed.
       }, [postsNumber]);
-
-      useEffect(() => {
-    if(fetchAbortRef.current) {
-      fetchAbortRef.current.abort();
-    }
-
-    fetchAbortRef.current = new AbortController();
-
-    fetch({
-      restRoute: `/wp/v2/posts?context=view&per_page=${postsNumber}`,
-      method:    'GET',
-      signal:    fetchAbortRef.current.signal,
-    }).
-    catch((error) => {
-      console.error(error);
-    });
-
-    return () => {
-      if(fetchAbortRef.current) {
-        fetchAbortRef.current.abort();
-      }
-    };
-  }, [postsNumber]);
 
       return (
         <ModuleContainer
