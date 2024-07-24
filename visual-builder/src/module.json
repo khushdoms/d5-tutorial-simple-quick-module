@@ -1,0 +1,57 @@
+{
+    "name": "d5-tut/simple-quick-module",
+    "d4Shortcode": "d5_tut_simple_quick_module",
+    "title": "Simple Quick Module",
+    "titles": "Simple Quick Modules",
+    "category": "module",
+    "attributes": {
+      "module": {
+        "type": "object",
+        "selector": "{{selector}}",
+        "default": {
+          "meta": {
+            "adminLabel": {
+              "desktop": {
+                "value": "Simple Quick Module"
+              }
+            }
+          }
+        }
+      },
+      "title": {
+        "type": "object",
+        "selector": "{{selector}} .d5_tut_simple_quick_module_title",
+        "attributes": {
+          "class": "d5_tut_simple_quick_module_title"
+        },
+        "tagName": "h2",
+        "inlineEditor": "plainText",
+        "elementType": "heading",
+        "childrenSanitizer": "et_core_esc_previously"
+      },
+      "content": {
+        "type": "object",
+        "selector": "{{selector}} .d5_tut_simple_quick_module_content",
+        "attributes": {
+          "class": "d5_tut_simple_quick_module_content"
+        },
+        "tagName": "div",
+        "inlineEditor": "richText",
+        "childrenSanitizer": "et_core_esc_previously",
+        "allowHtml": true
+      },
+      "recentPosts": {
+        "type": "object",
+        "selector": "{{selector}} .d5-tut-simple-quick-module-recent-posts",
+        "default": {
+          "innerContent": {
+            "desktop": {
+              "value": {
+                "postsNumber": "3"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
